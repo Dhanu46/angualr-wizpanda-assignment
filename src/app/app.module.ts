@@ -4,27 +4,32 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/login/login.component';
-import { RegisterComponent } from './modules/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ListComponent } from './modules/list/list.component';
+
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    SignupComponent,
     LoginComponent,
-    RegisterComponent,
-    ListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
+    NgxWebstorageModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
