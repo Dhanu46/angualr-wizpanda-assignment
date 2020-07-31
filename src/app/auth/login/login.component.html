@@ -19,18 +19,18 @@
                   type="text"
                   id="user_name"
                   class="form-control"
-                  [formControlName]="'username'"
+                  [formControlName]="'userName'"
                   name="user_name"
                   required
                   autofocus
                 />
                 <span
                   *ngIf="
-                    !loginForm.get('username').valid &&
-                    loginForm.get('username').touched
+                    !loginForm.get('userName').valid &&
+                    loginForm.get('userName').touched
                   "
                 >
-                  Please provide a valid username
+                  Please provide a valid username with at least 5 Characters
                 </span>
               </div>
             </div>
@@ -56,7 +56,7 @@
                     loginForm.get('password').touched
                   "
                 >
-                  Password cannot be empty
+                  Please provide a valid Password
                 </span>
               </div>
             </div>

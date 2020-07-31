@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.loginRequestPayload = {
-      username: '',
+      userName: '',
       password: '',
     };
     this.registerSuccessMessage = '';
@@ -32,7 +32,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
+      userName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
       password: new FormControl('', Validators.required),
     });
 
@@ -44,13 +47,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginRequestPayload.username = this.loginForm.get('username').value;
+    this.loginRequestPayload.userName = this.loginForm.get('userName').value;
     this.loginRequestPayload.password = this.loginForm.get('password').value;
 
     this.authService.login(this.loginRequestPayload).subscribe(
       (data) => {
         this.isError = false;
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('/students');
         this.toastr.success('Login Successful');
       },
       (error) => {
