@@ -3,6 +3,6 @@
 }
 
 .example-header-image {
-  background-image: url("assets/avatar-svgrepo-com.svg");
+  background-image: url("src\assets\avatar-svgrepo-com.svg");
   background-size: cover;
 }
